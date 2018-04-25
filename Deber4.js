@@ -16,9 +16,10 @@ function validarNumeroDeStringsEnArreglo(arreglo)
 var vector = [1,'hola',3.34,'raul', true,'poli'];
 //var numeroDeCadenas;
 console.log("El numero de String en el arreglo son: "+validarNumeroDeStringsEnArreglo(vector));
+
 */
 //Ejercicio 2
-
+/*
 var generadoresTipo1 = [62, 62, 62, 62];
 var generadoresTipo2 = [124,124,124,124,124,124,124,124,124,124,124,124,124,124,124];
 var stdin = process.openStdin();
@@ -92,9 +93,6 @@ function imprimirConsumo(tipo1, tipo2, opcion)
     }
     for(i=0;i<tipo2.length;i++)
     {
-        //suma=suma+tipo2[i];
-        //console.log(contador+1+":Generador #"+(contador+1)+" esta prendido, añadiendo "+tipo2[i]+" MW para un total de "+suma);
-        //contador++;
         if(opcion==1)
         {
             suma=suma+tipo2[i];
@@ -136,4 +134,37 @@ function imprimirConsumo(tipo1, tipo2, opcion)
     console.log("Generadores empresa electrica\n1. Activar todos los generadores\n2. Activar los generadores impar\n3. Activar los generadores par\n4. Salir");
     console.log("Escoja una opcion");
 
+}
+*/
+
+
+//Ejercicio 3
+var numeroDeOsosDeAnteojosInicial=12;
+var numeroDeMeses=0;
+
+console.log("Despues de cuantos meses desea calcualr la poblacion de osos");
+var stdin = process.openStdin();
+stdin.addListener("data", function(d) {
+    numeroDeMeses=d;
+    calcularPoblacion(numeroDeOsosDeAnteojosInicial, numeroDeMeses);
+});
+
+function calcularPoblacion(poblacion,meses)
+{
+    var poblacionParcial=poblacion;
+    for(i=0;i<meses;i++)
+    {
+        poblacionParcial=poblacionParcial*4;
+        if(poblacionParcial>=10000)
+        {
+            poblacionParcial=poblacionParcial/2;
+            console.log("Removiendo "+poblacionParcial+" osos de anteojos de la poblacion");
+            console.log("Van a existir "+poblacionParcial+" osos de anteojos despues del mes "+(i+1));
+        }
+        else
+        {
+            console.log("Van a existir "+poblacionParcial+" osos de anteojos despues del mes "+(i+1));
+            //console.log("La poblacion para el día "+i+" es de "+poblacionParcial);
+        }
+    }
 }
